@@ -16,6 +16,13 @@
    --nav-height: 7.2rem;
 }
 
+body,
+html {
+    width: 100%;
+    height: 100%;
+    overflow: overlay;
+}
+
 body {
     font-family: 'DM Sans', sans-serif;
     font-size: 1.6rem;
@@ -26,8 +33,10 @@ body {
     width: 37.5rem;   
     margin-inline: auto;
     padding-inline: 2.4rem;
-   
-   
+  
+}
+li {
+    list-style: none;
 }
 
 /*==================NAVIGATION =====================*/
@@ -56,16 +65,122 @@ nav.scroll #lar {
     color: #FFFFFF;
 }
 
+/*==================NAVIGATION MENU-COLLAPSED =====================*/
+nav .menu,
+nav .close-menu
+ {
+    /* opacity: 0;
+    visibility: hidden; */
+    display: none;
+}
+
+
+/*==================NAVIGATION MENU-EXPANDED =====================*/
+body.menu-expanded {
+    overflow: hidden;
+}
+
+body.menu-expanded > :not(nav) {
+    display: none;
+}
+body.menu-expanded .menu {
+    background-color: var(--primary-color);
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding-top: var(--nav-height);
+    
+}
+
+body.menu-expanded nav {
+    position: relative;  
+}
+
+body.menu-expanded .logo #vet,
+body.menu-expanded .logo #lar,
+body.menu-expanded nav button.close-menu{
+    position: relative;
+    z-index: 100;
+    color: #FFFFFF;
+}
+
+body.menu-expanded .menu,
+body.menu-expanded .close-menu
+ {
+      /* opacity: 1;
+    visibility: visible; */
+    display: block;
+ 
+}
+body.menu-expanded nav .close-menu {
+    background: none;
+    cursor: pointer;
+    border: none;
+}
+
+body.menu-expanded button.open-menu{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.menu ul:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    gap: 4.8rem;
+    margin-top: 6rem;
+    font-weight: 700;
+    font-size: 2.4rem;
+    line-height: 3.1rem;
+    
+}
+
+.menu ul a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+.menu .button{
+    text-decoration: none;
+    color: var(--primary-color);
+    background-color: #FFFFFF;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 2.3rem;
+
+    border-radius: 4rem;
+    padding: 1.6rem 3.2rem;
+    display: inline-block;
+    margin: 4.8rem 8rem;
+   
+}
+.social-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3.2rem;
+}
+
+
+
 /*==================VETLAR Logo=====================*/
 nav .logo {
     text-decoration: none;
 }
 
+nav .logo div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
 nav #vet,nav #lar{
     text-transform: uppercase;  
     text-decoration: none; 
     font-weight:  700;
     font-size: 1.8rem;
+    
 }
 
 nav #vet {
@@ -77,13 +192,19 @@ nav #lar {
 
 nav.scroll button.open-menu path{
     stroke: #FFFFFF;
+  
+  
 }
 
+nav button {
+    border: none;
+    background: none;
+}
 /*==================HEADER=====================*/
 
 header::before{
     content: "";
-    width: 100vw;
+    width: 100%;
     background-color: var(--brand-light);
     height: calc(96rem + var(--nav-height));
     display: block;
