@@ -7,3 +7,12 @@ function onScroll(){
     }  
 };
 
+const bodyElement = document.body;
+
+function onOpenMenu(){
+    bodyElement.classList.add('menu-expanded');
+};
+
+function onCloseMenu(){
+    bodyElement.classList.remove('menu-expanded');
+}
