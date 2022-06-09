@@ -12,21 +12,28 @@
    --paragraph: hsl(210,9%,31%);
    --brand-beige: hsl(39, 100%, 97%);
    --brand-light: hsl(148, 23%, 89%);
+   --background-light: hsl(180, 14%, 97%);
 
    --nav-height: 7.2rem;
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 body,
 html {
     width: 100%;
     height: 100%;
-    overflow: overlay;
+    
 }
 
 body {
     font-family: 'DM Sans', sans-serif;
     font-size: 1.6rem;
     text-align: center;
+    background-color: var( --background-light);
+    overflow: overlay;
 }
 
 .wrapper{
@@ -35,8 +42,13 @@ body {
     padding-inline: 2.4rem;
   
 }
-li {
+ul {
     list-style: none;
+}
+
+section{
+    padding-block: 10rem;
+   
 }
 
 /*==================NAVIGATION =====================*/
@@ -47,7 +59,8 @@ nav {
     position: fixed;  
     top:0;
     left: 50%;
-    transform: translateX(-50%);  
+    transform: translateX(-50%); 
+    z-index: 100; 
 }
 
 nav .wrapper{
@@ -59,6 +72,7 @@ nav .wrapper{
 nav.scroll{
     background-color: var(--primary-color);
     width: 100vw;
+    
 }
 nav.scroll #vet,
 nav.scroll #lar {
@@ -80,6 +94,10 @@ body.menu-expanded {
     overflow: hidden;
 }
 
+body .menu{
+    transform: translateY(100%);/* Initially hidden */
+}
+
 body.menu-expanded > :not(nav) {
     display: none;
 }
@@ -91,6 +109,9 @@ body.menu-expanded .menu {
     width: 100vw;
     height: 100vh;
     padding-top: var(--nav-height);
+
+    transform: translateY(0);
+    transition: transform 300ms; 
     
 }
 
@@ -200,14 +221,15 @@ nav button {
     border: none;
     background: none;
 }
-/*==================HEADER=====================*/
+/*==================HEADER TOP #HOME=====================*/
 
-header::before{
+header#home::before{
     content: "";
     width: 100%;
+    height: calc(98rem + var(--nav-height));
     background-color: var(--brand-light);
-    height: calc(96rem + var(--nav-height));
     display: block;
+
     position: absolute;
     z-index: -1;
     top: 0;
@@ -216,21 +238,21 @@ header::before{
    
 }
 
-header {
+header#home {
     
-    margin-top: calc(4.1rem + var(--nav-height));
+    padding-top: calc(4.1rem + var(--nav-height));
 }
 
-header h4 {
+header#home h4 {
     color: var(--primary-color);
     margin-bottom: 1.6rem;
     text-transform: uppercase;
   }
 
-header h1{
+header#home h1{
     margin-bottom: 2.4rem;
 }
-header p {
+header#home p {
     color: var(--paragraph-primary);
     font-size: 1.8rem;
     line-height: 150%;
@@ -240,7 +262,7 @@ header p {
 }
 
 
-header button {
+header#home button {
     background-color: var(--primary-color);
     border: none;
     border-radius: 4rem;
@@ -259,7 +281,7 @@ header button {
  
 }
 
-header img { 
+header#home img { 
     width: 26.3rem;
     height: 24.3rem;
     display: block;
@@ -270,7 +292,7 @@ header img {
 }
 
 
-header .stats {
+header#home .stats {
     width: 32.7rem;
     padding-block: 4rem;
     margin-inline:auto;
@@ -284,17 +306,52 @@ header .stats {
     transform: translateY(-3rem); /*making the stats go up to cover the image a little*/
 }
 
-.stat h3 {
+header#home .stat h3 {
     font-size: 4.8rem;
     color: var(--headline);
     line-height: 130%;
     margin-bottom: 0.4rem;
 }
 
-.stats p {
+header#home .stats p {
     margin: 0;
     color: var(--primary-color);
     line-height: 150%;
     font-size: 1.6rem;
     
+}
+/*==================SECTION SERVICES =====================*/
+#services header h4 {
+    font-size: 1.4rem;
+    line-height: 150%;
+    letter-spacing: 0.08rem;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    margin-bottom: 1.6rem;
+    
+}
+#services header h2 {
+    font-size: 3rem;
+    line-height: 3.9rem;
+    color: var(--headline);
+    margin-bottom: 6rem;
+}
+
+#services .cards {
+    display: flex;  
+    flex-direction: column;
+    gap: 3.2rem;
+}
+
+#services .card {
+    padding: 2.4rem;
+    text-align: left;
+    background: #FFFFFF;
+    border: 1px solid var(--brand-light);
+    border-radius: 0.6rem;
+
+}
+
+#services .card h3{
+    margin-block: 1.6rem;
 }
