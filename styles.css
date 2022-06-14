@@ -10,14 +10,12 @@
     /* --brand-light: hsl(148, 23%, 89%); */
 
    font-size: 62.5%; /*here 1rem = 10px  Original value 1rem = 16px = 100%*/ 
-   --hue: 207;
-   --saturation: 73%;
-   --lightness: 57%;
+   --hue: 207;  
    --primary-color: hsl(var(--hue), 73%, 57%);
    --headline: hsl(210,11%,15%);
    --paragraph: hsl(210,9%,31%);
    --brand-beige: hsl(39, 100%, 97%);
-   --brand-light: hsl(200, 90%, 85%);
+   --brand-light: hsl(calc(var(--hue) - 7), 90%, 85%);
    --background-light: hsl(180, 14%, 97%);
    --brand-dark: hsl(var(--hue), 100%, 44%);
 
@@ -453,7 +451,7 @@ nav button {
     align-items: center;
     gap: 0.8rem;
 }
-#contact .content li svg path[stroke*="#00856F"]{
+#contact .content li  path{
     stroke: var(--primary-color);
 }
 
