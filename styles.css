@@ -13,6 +13,7 @@
    --brand-beige: hsl(39, 100%, 97%);
    --brand-light: hsl(148, 23%, 89%);
    --background-light: hsl(180, 14%, 97%);
+   --brand-dark: hsl(170, 100%, 14%);
 
    --nav-height: 7.2rem;
 }
@@ -51,6 +52,88 @@ section{
    
 }
 
+section header h1 {
+    font-size: 3.4rem;
+    color: var(--headline);
+    line-height: 130%;
+
+}
+
+section header h4{
+    color: var(--primary-color);
+    margin-bottom: 1.6rem;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    line-height: 150%;
+    letter-spacing: 0.08rem;
+}
+
+section header h2{
+    font-size: 3rem;
+    line-height: 3.9rem;
+    color: var(--headline);
+   
+}
+section .content p {
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 150%;
+    color: var(--paragraph);
+
+}
+
+section img {
+    max-width: 100%; 
+    border-radius: 0.6rem;
+}
+
+.button {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 4rem;
+    padding: 1.6rem 3.2rem;
+    width: fit-content;
+   
+    color: #ffffff; 
+    font-weight: 700;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 6rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+}
+
+.button:hover{
+    background: var(--brand-dark);
+    transition: 200ms;
+}
+
+.logo{
+    text-decoration: none;
+}
+
+#vet,#lar{
+
+    text-transform: uppercase;  
+    text-decoration: none;   
+    font-size: 1.8rem;
+    color: #FFFFFF;
+    
+}
+
+
+.social-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3.2rem;
+}
+
+
 /*==================NAVIGATION =====================*/
 nav {
     display: flex;
@@ -58,8 +141,9 @@ nav {
     height: var(--nav-height);
     position: fixed;  
     top:0;
-    left: 50%;
-    transform: translateX(-50%); 
+    /* left: 50%;
+    transform: translateX(-50%);  */
+    width: 100vw;
     z-index: 100; 
 }
 
@@ -71,14 +155,15 @@ nav .wrapper{
 
 nav.scroll{
     background-color: var(--primary-color);
-    width: 100vw;
     
 }
 nav.scroll #vet,
 nav.scroll #lar {
     color: #FFFFFF;
 }
-
+nav.scroll #lar {
+    font-weight:  700;
+}
 /*==================NAVIGATION MENU-COLLAPSED =====================*/
 nav .menu,
 nav .close-menu
@@ -94,12 +179,13 @@ body.menu-expanded {
     overflow: hidden;
 }
 
-body .menu{
+.menu{
     transform: translateY(100%);/* Initially hidden */
 }
 
 body.menu-expanded > :not(nav) {
-    display: none;
+        
+    visibility: hidden;
 }
 body.menu-expanded .menu {
     background-color: var(--primary-color);
@@ -110,13 +196,9 @@ body.menu-expanded .menu {
     height: 100vh;
     padding-top: var(--nav-height);
 
-    transform: translateY(0);
     transition: transform 300ms; 
+    transform: translateY(0);
     
-}
-
-body.menu-expanded nav {
-    position: relative;  
 }
 
 body.menu-expanded .logo #vet,
@@ -174,41 +256,31 @@ body.menu-expanded button.open-menu{
     padding: 1.6rem 3.2rem;
     display: inline-block;
     margin: 4.8rem 8rem;
+    transition: 200ms;
    
 }
-.social-links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3.2rem;
+.menu .button:hover{
+    background: var(--primary-color);
+    color: #FFFFFF;
+    filter: brightness(1.3);
 }
-
 
 
 /*==================VETLAR Logo=====================*/
-nav .logo {
-    text-decoration: none;
-}
-
 nav .logo div {
     display: flex;
     justify-content: center;
     align-items: center;
     
 }
-nav #vet,nav #lar{
-    text-transform: uppercase;  
-    text-decoration: none; 
-    font-weight:  700;
-    font-size: 1.8rem;
-    
-}
 
 nav #vet {
     color: #000000;
+    font-weight:  700;
 }
 nav #lar {
-    color: var(--primary-color)
+    color: var(--primary-color);
+    font-weight:  700;
 }
 
 nav.scroll button.open-menu path{
@@ -221,9 +293,9 @@ nav button {
     border: none;
     background: none;
 }
-/*==================HEADER TOP #HOME=====================*/
+/*==================SECTION #HOME=====================*/
 
-header#home::before{
+#home::before{
     content: "";
     width: 100%;
     height: calc(98rem + var(--nav-height));
@@ -238,21 +310,15 @@ header#home::before{
    
 }
 
-header#home {
-    
+#home {
     padding-top: calc(4.1rem + var(--nav-height));
 }
 
-header#home h4 {
-    color: var(--primary-color);
-    margin-bottom: 1.6rem;
-    text-transform: uppercase;
-  }
-
-header#home h1{
+#home h1{
     margin-bottom: 2.4rem;
 }
-header#home p {
+
+#home p {
     color: var(--paragraph-primary);
     font-size: 1.8rem;
     line-height: 150%;
@@ -262,26 +328,13 @@ header#home p {
 }
 
 
-header#home button {
-    background-color: var(--primary-color);
-    border: none;
-    border-radius: 4rem;
-    height: 6.2rem;
-    width:26.3rem;
-    color: #ffffff; 
-    font-weight: 700;
-    font-size: 1.4rem;
-    text-transform: uppercase;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.6rem;
-    margin: 0 auto 6rem auto;
+#home a.button {
+    
+    margin-inline: auto;
  
 }
 
-header#home img { 
+#home img { 
     width: 26.3rem;
     height: 24.3rem;
     display: block;
@@ -292,7 +345,7 @@ header#home img {
 }
 
 
-header#home .stats {
+#home .stats {
     width: 32.7rem;
     padding-block: 4rem;
     margin-inline:auto;
@@ -306,14 +359,14 @@ header#home .stats {
     transform: translateY(-3rem); /*making the stats go up to cover the image a little*/
 }
 
-header#home .stat h3 {
+#home .stat h3 {
     font-size: 4.8rem;
     color: var(--headline);
     line-height: 130%;
     margin-bottom: 0.4rem;
 }
 
-header#home .stats p {
+#home .stats p {
     margin: 0;
     color: var(--primary-color);
     line-height: 150%;
@@ -321,19 +374,8 @@ header#home .stats p {
     
 }
 /*==================SECTION SERVICES =====================*/
-#services header h4 {
-    font-size: 1.4rem;
-    line-height: 150%;
-    letter-spacing: 0.08rem;
-    text-transform: uppercase;
-    color: var(--primary-color);
-    margin-bottom: 1.6rem;
-    
-}
-#services header h2 {
-    font-size: 3rem;
-    line-height: 3.9rem;
-    color: var(--headline);
+
+#services h2 {
     margin-bottom: 6rem;
 }
 
@@ -354,4 +396,92 @@ header#home .stats p {
 
 #services .card h3{
     margin-block: 1.6rem;
+}
+
+/*==================SECTION ABOUT =====================*/
+
+#about {
+    text-align: left;
+    background: var(--brand-beige)
+}
+
+#about header h2 {
+    margin-bottom: 2.4rem;
+}
+
+#about .content p {
+    margin-bottom:6rem;
+    margin-top: 2.4rem;
+}
+
+
+/*==================SECTION CONTACT =====================*/
+#contact {
+    text-align: left;
+}
+
+#contact header {
+    margin-bottom: 3.2rem;
+}
+
+#contact ul {
+    display:flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    margin-bottom: 3.2rem;
+}
+
+#contact ul li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+
+/*==================FOOTER  =====================*/
+
+footer {
+    padding-block: 6rem;
+    background: var(--primary-color);
+    text-align: left;
+    color: #FFFFFF;
+}
+
+footer a.logo{ 
+    display: inline-block;
+    margin-bottom: 2.4rem;
+}
+footer .logo #vet,
+footer .logo #lar  {
+    font-size: 2.8rem;
+
+}
+footer .logo #lar {
+    font-weight:  700;
+}
+footer p {
+    color: var(--brand-beige);
+    line-height:  2; 
+    margin-bottom: 3.2rem;  
+}
+footer ul.social-links {
+        justify-content: flex-start;
+}
+
+/*==================LINK BACK TO TOP  =====================*/
+#backToTopButton {
+    position: fixed;
+    bottom: 1rem;
+    right: 2.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100%); /* make it disappear*/
+    transition: transform 200ms;
+}
+
+#backToTopButton.show{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+
 }
