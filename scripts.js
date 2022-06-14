@@ -1,15 +1,32 @@
-function onScroll() {
+window.addEventListener("scroll", onScroll);
+onScroll();
+
+function onScroll() {  
+  showNavWithPrimaryColor();
+  showBackToTopButton();
+};
+
+
+function showNavWithPrimaryColor(){
   const navigation = document.querySelector("#navigation");
-  console.log(navigation, scrollY);
-  if (scrollY > 0) {
+   if (scrollY > 0) {
     navigation.classList.add("scroll");
   } else {
     navigation.classList.remove("scroll");
   }
 }
 
-const bodyElement = document.body;
 
+function showBackToTopButton(){
+  const linkToTop = document.querySelector("#backToTopButton");
+  if(scrollY >=400){
+    linkToTop.classList.add("show");
+  }else {
+    linkToTop.classList.remove("show");
+  }
+};
+
+const bodyElement = document.body;
 function onOpenMenu() {
   bodyElement.classList.add("menu-expanded");
 }
@@ -17,6 +34,7 @@ function onOpenMenu() {
 function onCloseMenu() {
   bodyElement.classList.remove("menu-expanded");
 }
+
 
 ScrollReveal({
     origin: 'top', 
@@ -27,5 +45,8 @@ ScrollReveal({
     #home .stats, 
     #services,
     #services header,
-    #services .card`
+    #services .card,
+    #about,
+    #about header,
+    #about .content`
     );
