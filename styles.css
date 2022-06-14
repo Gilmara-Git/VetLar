@@ -5,15 +5,21 @@
 }
 
 :root {
+    /*HSL= Hue, Saturation , Lightness */
+    /* --primary-color: hsl(var(--hue),100%,26%); */
+    /* --brand-light: hsl(148, 23%, 89%); */
 
    font-size: 62.5%; /*here 1rem = 10px  Original value 1rem = 16px = 100%*/ 
-   --primary-color: hsl(170,100%,26%);
+   --hue: 207;
+   --saturation: 73%;
+   --lightness: 57%;
+   --primary-color: hsl(var(--hue), 73%, 57%);
    --headline: hsl(210,11%,15%);
    --paragraph: hsl(210,9%,31%);
    --brand-beige: hsl(39, 100%, 97%);
-   --brand-light: hsl(148, 23%, 89%);
+   --brand-light: hsl(200, 90%, 85%);
    --background-light: hsl(180, 14%, 97%);
-   --brand-dark: hsl(170, 100%, 14%);
+   --brand-dark: hsl(var(--hue), 100%, 44%);
 
    --nav-height: 7.2rem;
 }
@@ -172,6 +178,11 @@ nav .close-menu
     visibility: hidden; */
     display: none;
 }
+
+nav .open-menu svg path{
+    stroke: var(--primary-color);
+}
+
 
 
 /*==================NAVIGATION MENU-EXPANDED =====================*/
@@ -398,6 +409,12 @@ nav button {
     margin-block: 1.6rem;
 }
 
+#services .card svg path[stroke*="#00856F"] {
+    stroke: #FFFFFF;
+}
+#services .card svg circle[fill*="#DCE9E2"]{
+    fill: var(--brand-light);
+}
 /*==================SECTION ABOUT =====================*/
 
 #about {
@@ -436,7 +453,9 @@ nav button {
     align-items: center;
     gap: 0.8rem;
 }
-
+#contact .content li svg path[stroke*="#00856F"]{
+    stroke: var(--primary-color);
+}
 
 /*==================FOOTER  =====================*/
 
@@ -483,5 +502,10 @@ footer ul.social-links {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+
+}
+
+#backToTopButton svg circle{
+    fill: var(--primary-color);
 
 }
