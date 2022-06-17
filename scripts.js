@@ -4,6 +4,7 @@ onScroll();
 function onScroll() {  
   showNavWithPrimaryColor();
   showBackToTopButton();
+  makeSocialLinkActiveWhenOnItsSession();
 };
 
 
@@ -35,6 +36,18 @@ function onCloseMenu() {
   bodyElement.classList.remove("menu-expanded");
 }
 
+
+function makeSocialLinkActiveWhenOnItsSession(){ 
+  
+  const sectionInicio = document.querySelector('.menu li:nth-child(1) a')
+  const targetLine = (innerHeight/2) + scrollY; 
+
+  if(targetLine > home.offsetTop && targetLine < services.offsetTop){ 
+    sectionInicio.classList.add('active')
+  }else {
+    sectionInicio.classList.remove('active')
+  }
+}
 
 ScrollReveal({
     origin: 'top', 
