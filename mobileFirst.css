@@ -8,7 +8,6 @@
     /*HSL= Hue, Saturation , Lightness */
     /* --primary-color: hsl(var(--hue),100%,26%); */
     /* --brand-light: hsl(148, 23%, 89%); */
-
    font-size: 62.5%; /*here 1rem = 10px  Original value 1rem = 16px = 100%*/ 
    --hue: 207;  
    --primary-color: hsl(var(--hue), 73%, 57%);
