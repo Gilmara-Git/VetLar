@@ -1,6 +1,6 @@
 <h1 align="center">VetLar</h1>
 
-<h1 align="center"><img src="https://ik.imagekit.io/cnbmdh4b9w/ezgif.com-gif-maker__7__-veKQDZIQ.gif?ik-sdk-version=javascript-1.4.3&updatedAt=1655594707483"></h1>
+<h1 align="center"><img src="https://ik.imagekit.io/cnbmdh4b9w/ezgif.com-gif-maker__7__-veKQDZIQ.gif?ik-sdk-version=javascript-1.4.3&updatedAt=1655594707483"/></h1>
 
 
 <h2>About</h2>
