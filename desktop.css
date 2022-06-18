@@ -312,10 +312,7 @@
             grid-template-columns: 1fr 1fr;
             grid-template-areas: 'A B';
         }
-        footer{
-            padding-block: 8rem;
-        }
-
+        
         footer .columnA{
             grid-area: A;
             align-self: center;
@@ -324,7 +321,10 @@
             grid-area: B;
             justify-self: flex-end;
             align-self: center;
-            
+        }
+        
+        footer{
+            padding-block: 8rem;
         }
         footer p{
             margin: 0
