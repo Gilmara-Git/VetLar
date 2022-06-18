@@ -5,7 +5,7 @@
 
 <h2>About</h2>
 
-A webpage developed for a local Veterinarian facility located in Belo Horizonte, MG - Brazil
+A webpage developed for a local Veterinarian facility located in Belo Horizonte,MG - Brazil
 
 <p>On this page it displays their services, contact channels, location.
 </p>
