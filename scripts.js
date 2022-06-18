@@ -1,10 +1,14 @@
-window.addEventListener("scroll", onScroll);
-onScroll();
 
-function onScroll() {  
+  window.addEventListener("scroll", onScroll);
+  onScroll();
+
+function onScroll() {   
   showNavWithPrimaryColor();
   showBackToTopButton();
-  makeSocialLinkActiveWhenOnItsSession();
+  makeMenuLinkActiveWhenOnItsSession(home)
+  makeMenuLinkActiveWhenOnItsSession(services);
+  makeMenuLinkActiveWhenOnItsSession(about);
+  makeMenuLinkActiveWhenOnItsSession(contact);
 };
 
 
@@ -37,16 +41,30 @@ function onCloseMenu() {
 }
 
 
-function makeSocialLinkActiveWhenOnItsSession(){ 
-  
-  const sectionInicio = document.querySelector('.menu li:nth-child(1) a')
-  const targetLine = (innerHeight/2) + scrollY; 
+function makeMenuLinkActiveWhenOnItsSession(section){ 
+  // innerHeight is the viewport height(screenSize)
+  const screenSize = innerHeight;
+  // Scrolling Line within the section
+  const targetLine = (screenSize/2) + scrollY; 
 
-  if(targetLine > home.offsetTop && targetLine < services.offsetTop){ 
-    sectionInicio.classList.add('active')
-  }else {
-    sectionInicio.classList.remove('active')
-  }
+  const sectionTop = section.offsetTop;
+  const sectionHeight = section.offsetHeight;
+  const sectionBottom = sectionTop + sectionHeight;
+ 
+
+  const sectionTopAboveTargetLine =  sectionTop <= targetLine;
+  const sectionBottomBelowTargetLine = sectionBottom >=targetLine; 
+  const targetLineWithinSectionBoundaries = sectionTopAboveTargetLine && sectionBottomBelowTargetLine;
+
+  const sectionId = section.getAttribute("id");
+ 
+  const menuLink = document.querySelector(`.menu a[href*=${sectionId}]`);  
+  
+  menuLink.classList.remove('active');
+  if(targetLineWithinSectionBoundaries){
+    menuLink.classList.add('active')
+ }
+ 
 }
 
 ScrollReveal({
