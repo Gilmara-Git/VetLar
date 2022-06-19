@@ -28,4 +28,5 @@ This page is responsive, so it can be easily accessed on mobile devices.
 <h2>Technologies</h2>
 Html, 
 Css: Flex box, Grid, and @media rules to adapt page when its width > 1024px. 
-Javascript
+Javascript: Used lib ScrollReview to show elements of the page in a pleasant way
+Doc: scrollrevealjs.org
